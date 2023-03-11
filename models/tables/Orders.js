@@ -9,7 +9,7 @@ module.exports = (sequelize, { DataTypes }) => {
       },
       billType: {
         type: DataTypes.STRING,
-        defaultValue: "CASH", // "SWIGGY", "ZOMATO" , "UPI" , "OTHER"
+        defaultValue: "CASH", // "SWIGGY", "ZOMATO" , "UPI" , "OTHER" , "QUOTATION"
       },
       total: {
         type: DataTypes.STRING, // Actual total by adding items rate.
@@ -29,13 +29,17 @@ module.exports = (sequelize, { DataTypes }) => {
       },
       status: {
         type: DataTypes.STRING,
-        defaultValue: "COMPLETED", // "CANCELED"
+        defaultValue: "COMPLETED", // "CANCELED" "CREDITED"
       },
       message: {
         type: DataTypes.STRING,
       },
       billedBy: {
         type: DataTypes.STRING,
+      },
+      billedTo: {
+        type: DataTypes.STRING,
+        defaultValue: "CUSTOMER",
       },
     },
     {

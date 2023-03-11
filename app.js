@@ -29,7 +29,7 @@ app.use(function (err, req, res, next) {
   });
 });
 
-sequelize.sync({ force: false, alter: false }).then(() => {
+sequelize.sync({ force: false, alter: true }).then(() => {
   app.listen(PORT);
   console.log(`Server started on port ${PORT}`);
 });

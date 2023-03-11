@@ -31,6 +31,7 @@ exports.newOrder = async (req, res, next) => {
       message,
       mrp,
       billedBy,
+      billedTo,
     } = req.body;
     let order = await m_Orders.create(
       {
@@ -38,11 +39,12 @@ exports.newOrder = async (req, res, next) => {
         total,
         discount,
         rate,
-        status,
+        status: billType == "QUOTATION" ? "QUOTATION" : status,
         Items,
         message,
         mrp,
         billedBy,
+        billedTo: billedTo ? billedTo.toUpperCase() : billedTo,
       },
       {
         include: {
